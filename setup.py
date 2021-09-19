@@ -1,10 +1,11 @@
 from setuptools import setup, find_packages
 
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
-with open("requirements.txt", "r", encoding="utf-8") as fh:
-    requirements = fh.read()
+with open("README.md", encoding="utf8", errors='ignore') as f:
+    long_description = f.read()
+with open("requirements.txt", encoding="utf8", errors='ignore') as f:
+    install_requires = [l for l in f.readlines() if l and not l.startswith('#')]
+
 setup(
     name='rita',
     version='0.0.1',
@@ -17,16 +18,17 @@ setup(
     url='https://github.com/basillica',
     py_modules=['rita'],
     packages=find_packages(),
-    install_requires=[requirements],
+    install_requires=install_requires,
     python_requires='>=3.7',
     classifiers=[
         "Programming Language :: Python :: 3.8",
         "Operating System :: OS Independent",
     ],
-    entry_points='''
-        [console_scripts]
-        rita=main:main
-    '''
+    entry_points={
+        'console_scripts': [
+            'rita = main:cli',
+        ],
+    },
 )
 
 

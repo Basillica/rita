@@ -1,0 +1,1 @@
+-e git+ssh://git@github.com/Basillica/rita.git@df038e5f6110f2f200783ab0cfb064b66cfcc770#egg=rita
