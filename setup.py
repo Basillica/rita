@@ -3,7 +3,8 @@ from setuptools import setup, find_packages
 
 with open("README.md", encoding="utf8", errors='ignore') as f:
     long_description = f.read()
-with open("requirements.txt", encoding="utf8", errors='ignore') as f:
+
+with open("requirements", encoding="utf8", errors='ignore') as f:
     install_requires = [l for l in f.readlines() if l and not l.startswith('#')]
 
 setup(
